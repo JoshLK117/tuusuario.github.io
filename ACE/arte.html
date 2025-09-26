@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería Museo</title>
+  <link rel="stylesheet" href="art.css" />
+</head>
+<body>
+  <header>
+    <h1>Galería Museo de Arte</h1>
+    <p>Explora obras y reflexiones artísticas</p>
+  </header>
+
+  <main>
+    <section class="obra">
+      <img src="img/artace.png" alt="Obra de arte 1" />
+      <h2>“Luz y Sombra”</h2>
+      <p>Una exploración de la dualidad en la pintura contemporánea.</p>
+    </section>
+
+    <nav class="navegacion">
+      <button onclick="window.location.href='mate.html'">⟵ Regresar</button>
+      <button onclick="cambiarObra(1)">Siguiente ⟶</button>
+    </nav>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Museo Virtual. ACE.</p>
+  </footer>
+
+  <script>
+    const obras = [
+      {
+        img: "obra1.jpg",
+        titulo: "“Luz y Sombra”",
+        texto: "Una exploración de la dualidad en la pintura contemporánea."
+      },
+      {
+        img: "obra2.jpg",
+        titulo: "“Geometría Emocional”",
+        texto: "Formas abstractas que evocan estados internos."
+      },
+      {
+        img: "obra3.jpg",
+        titulo: "“Naturaleza Fragmentada”",
+        texto: "La belleza de lo orgánico en tiempos digitales."
+      }
+    ];
+
+    let indice = 0;
+
+    function cambiarObra(direccion) {
+      indice = (indice + direccion + obras.length) % obras.length;
+      const obra = obras[indice];
+      document.querySelector(".obra img").src = obra.img;
+      document.querySelector(".obra h2").textContent = obra.titulo;
+      document.querySelector(".obra p").textContent = obra.texto;
+    }
+  </script>
+</body>
+</html>
